@@ -6,8 +6,12 @@ const REDIRECT_SECONDS = 10;
 
 const App: React.FC = () => {
   const [countdown, setCountdown] = useState<number>(REDIRECT_SECONDS);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
+    // Trigger load animation
+    setIsLoaded(true);
+
     if (countdown <= 0) {
       window.location.href = NEW_URL;
       return;
@@ -28,10 +32,10 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center p-4 selection:bg-cyan-500 selection:text-slate-900">
-      <div className="w-full max-w-2xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-cyan-500/10 overflow-hidden transform transition-all hover:scale-[1.01] duration-500">
+      <div className={`w-full max-w-2xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-cyan-500/10 overflow-hidden transform transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <div className="p-8 md:p-12 text-center">
           <div className="flex justify-center mb-6">
-            <svg className="w-16 h-16 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <svg className="w-16 h-16 text-cyan-400 animate-subtle-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </div>
@@ -42,7 +46,7 @@ const App: React.FC = () => {
             <strong className="text-white font-semibold">{OLD_URL}</strong> hat sich weiterentwickelt und heisst jetzt
           </p>
           <p className="text-4xl md:text-6xl font-bold text-cyan-400 mb-8 tracking-tight">
-            KMU Power
+            KMUpower
           </p>
           
           <p className="text-slate-400 mb-8 max-w-lg mx-auto">
@@ -53,6 +57,7 @@ const App: React.FC = () => {
             <button
               onClick={handleRedirectClick}
               className="w-full md:w-auto bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 px-8 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-300 focus:ring-opacity-50"
+              aria-label="Jetzt zur neuen Webseite kmupower.com wechseln"
             >
               Jetzt zu kmupower.com
             </button>
@@ -60,8 +65,12 @@ const App: React.FC = () => {
 
           <div className="text-slate-400">
             <p className="mb-3">Automatische Weiterleitung in...</p>
-            <p className="text-6xl font-bold text-white mb-4">{countdown}</p>
-            <div className="w-full bg-slate-700 rounded-full h-2.5">
+            <div className="relative h-20 flex items-center justify-center mb-4">
+              <p key={countdown} className="text-6xl font-bold text-white animate-fade-in-scale">
+                {countdown}
+              </p>
+            </div>
+            <div className="w-full bg-slate-700 rounded-full h-2.5" role="progressbar" aria-valuenow={progressPercentage} aria-valuemin={0} aria-valuemax={100}>
               <div
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2.5 rounded-full transition-all duration-1000 ease-linear"
                 style={{ width: `${progressPercentage}%` }}
