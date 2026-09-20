@@ -47,6 +47,9 @@ NOT_FOUND = """<!DOCTYPE html>
 <meta charset="utf-8">
 <title>Weiterleitung zu KMUpower</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<p>Diese Seite ist umgezogen. <a id="go" href="{fallback_plain}">Weiter zu KMUpower</a></p>
 <script>
 (function () {{
   var rules = {rules};
@@ -58,13 +61,11 @@ NOT_FOUND = """<!DOCTYPE html>
     var p = rules[i][0];
     if (path === p || path.indexOf(p + "/") === 0) {{ target = rules[i][1]; break; }}
   }}
-  document.getElementById("go").href = target;
+  var link = document.getElementById("go");
+  if (link) {{ link.href = target; }}
   window.location.replace(target);
 }})();
 </script>
-</head>
-<body>
-<p>Diese Seite ist umgezogen. <a id="go" href="{fallback_plain}">Weiter zu KMUpower</a></p>
 </body>
 </html>
 """
