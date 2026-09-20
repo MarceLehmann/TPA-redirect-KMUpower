@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Weiterleitungen der alten Domain
 
-# Run and deploy your AI Studio app
+Statische Weiterleitungsseiten (GitHub Pages) fuer die frueheren Adressen der alten Wix-Seite. Jede alte URL leitet auf die
+passende neue Seite von KMUpower, der Power Platform Academy oder PowerPlatformTip.
 
-This contains everything you need to run your app locally.
+- `redirects.json`: Zuordnung alt nach neu (einzige Quelle der Wahrheit). Hier pflegen.
+- `tools/build_redirects.py`: erzeugt daraus alle Seiten, `404.html`, `robots.txt`, `sitemap.xml` und `CNAME`.
+  Aufruf im Repo-Root: `python tools/build_redirects.py`, danach committen und pushen.
+- Jede Seite nutzt einen sofortigen Meta-Refresh mit `rel=canonical` auf das Ziel. Google wertet einen sofortigen
+  Meta-Refresh als permanente Weiterleitung.
+- Unbekannte Pfade landen in `404.html` und werden dort per JavaScript nach Praefix-Regeln umgeleitet.
+- Die Weiterleitungen sollen mindestens ein Jahr stehen bleiben, laenger ist unproblematisch.
 
-View your app in AI Studio: https://ai.studio/apps/drive/194kDW88PZNFhszYr6ednXg6PRVid-IZ6
+## DNS (bei Namecheap)
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- `A` fuer `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (keine weitere IP, insbesondere nicht `162.255.119.30`)
+- `CNAME` fuer `www`: `marcelehmann.github.io.` (keine URL-Weiterleitung fuer `www`)
+- Mail-Eintraege (MX, TXT, CNAME fuer Microsoft 365) nicht aendern.
