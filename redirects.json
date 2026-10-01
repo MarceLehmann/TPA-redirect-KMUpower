@@ -63,7 +63,7 @@
     {"from": "/post/no-code-loesungen-dienstleistungsbranche", "to": "kmupower:/loesungen/kmu-software", "why": "No-Code/Low-Code-Lösungen für KMU"},
     {"from": "/post/powerapps-prozessoptimierung-10-kreative-ideen", "to": "kmupower:/loesungen/digitale-prozesse", "why": "Power-Apps-Ideen für digitale Prozesse"},
     {"from": "/post/produktivitaet-steigern-mit-power-automate", "to": "kmupower:/loesungen/workflow-automatisierung", "why": "Produktivität mit Power Automate"},
-    {"from": "/post/vergleich-von-power-automate-zapier-und-make-warum-die-power-platform-die-beste-wahl-ist", "to": "kmupower:/loesungen/workflow-automatisierung", "why": "Vergleich Power Automate, Zapier, Make. Zwischenlösung, sobald es auf kmupower.com eine eigene Vergleichsseite gibt, hier umstellen"},
+    {"from": "/post/vergleich-von-power-automate-zapier-und-make-warum-die-power-platform-die-beste-wahl-ist", "to": "kmupower:/vergleich/power-automate-zapier-make", "why": "Vergleich Power Automate, Zapier, Make. Seit 02.10.2026 eigene Vergleichsseite auf kmupower.com, Ziel umgestellt"},
     {"from": "/post/von-excel-zu-powerapps-digitale-transformation-für-kmus", "to": "kmupower:/newsletter/2025-09-15-schluss-mit-excel-hoelle", "why": "Von Excel zu Power Apps"}
   ],
   "fallback_rules": [
