@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Weiterleitung auf kmupower.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><meta http-equiv="refresh" content="0; url=https://kmupower.com/"></noscript>
+</head>
+<body>
+<p>Weiterleitung auf <a id="go" href="https://kmupower.com/">kmupower.com</a></p>
+<script>
+(function () {
+  var exact = {"/": "https://kmupower.com/", "/home": "https://kmupower.com/", "/about": "https://kmupower.com/ueber-uns", "/ueber-mich": "https://kmupower.com/ueber-uns", "/agb": "https://kmupower.com/agb-impressum", "/blank": "https://kmupower.com/loesungen", "/services": "https://kmupower.com/loesungen", "/bni": "https://kmupower.com/", "/book-online": "https://kmupower.com/kontakt", "/booking-calendar/beratung-und-umsetzung": "https://kmupower.com/kontakt", "/booking-calendar/coaching": "https://kmupower.com/kontakt", "/booking-calendar/schulungen": "https://www.powerplatformacademy.online/power-platform-schulung", "/booking-calendar/workshops": "https://www.powerplatformacademy.online/workshops", "/cart-page": "https://kmupower.com/", "/payment-request-page": "https://kmupower.com/", "/challenges": "https://kmupower.com/", "/challenge-thanks": "https://kmupower.com/", "/contact": "https://kmupower.com/kontakt", "/kontakt": "https://kmupower.com/kontakt", "/termin": "https://kmupower.com/kontakt", "/crm": "https://kmupower.com/", "/followers": "https://kmupower.com/", "/members": "https://kmupower.com/", "/members-area": "https://kmupower.com/", "/members-area/marcel-lehmann/profile": "https://kmupower.com/ueber-uns", "/refer-friends": "https://kmupower.com/", "/referral": "https://kmupower.com/", "/save": "https://kmupower.com/", "/search": "https://kmupower.com/", "/search-results": "https://kmupower.com/", "/upgreat": "https://kmupower.com/", "/registration": "https://www.powerplatformacademy.online/workshops", "/kmu-digitalisierung": "https://kmupower.com/newsletter-archiv", "/blog": "https://kmupower.com/newsletter-archiv", "/plans-pricing": "https://kmupower.com/preise", "/portfolio": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio/project-title-1": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio/project-title-2": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio/project-title-3": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio/project-title-4": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio/project-title-5": "https://kmupower.com/case-studies", "/portfolio-collections/my-portfolio/project-title-6": "https://kmupower.com/case-studies", "/powerplatformtip": "https://www.powerplatformtip.com/", "/service-page/beratung-und-umsetzung": "https://kmupower.com/loesungen/power-platform-beratung", "/service-page/coaching": "https://kmupower.com/loesungen/citizen-development", "/service-page/schulungen": "https://www.powerplatformacademy.online/power-platform-schulung", "/service-page/workshops": "https://www.powerplatformacademy.online/workshops", "/post/5-kritische-fehler-bei-cloud-flows-in-power-automate-cloud-flows-und-wie-du-sie-vermeidest": "https://www.powerplatformtip.com/article/powerplatformtip/powerplatformtip-15-try-catch-finally/", "/post/csv-automatisierung-mit-power-automate-office-scripts-datenverarbeitung": "https://www.powerplatformtip.com/article/powerplatformtip/powerplatformtip-125-convert-csv-to-json/", "/post/die-herausforderungen-der-prozessoptimierung-in-kmus": "https://kmupower.com/loesungen/automatisierung-kmu", "/post/email-automatisierung-power-automate-ki": "https://kmupower.com/newsletter/2025-11-24-email-ist-kein-taskmanager", "/post/individuelle-geschichten-f\u00fcr-kinder-christliche-werte-durch-personalisierte-erz\u00e4hlungen-vermitteln": "https://kmupower.com/", "/post/no-code-loesungen-dienstleistungsbranche": "https://kmupower.com/loesungen/kmu-software", "/post/powerapps-prozessoptimierung-10-kreative-ideen": "https://kmupower.com/loesungen/digitale-prozesse", "/post/produktivitaet-steigern-mit-power-automate": "https://kmupower.com/loesungen/workflow-automatisierung", "/post/vergleich-von-power-automate-zapier-und-make-warum-die-power-platform-die-beste-wahl-ist": "https://kmupower.com/loesungen/workflow-automatisierung", "/post/von-excel-zu-powerapps-digitale-transformation-f\u00fcr-kmus": "https://kmupower.com/newsletter/2025-09-15-schluss-mit-excel-hoelle"};
+  var rules = [["/post", "https://kmupower.com/newsletter-archiv"], ["/blog", "https://kmupower.com/newsletter-archiv"], ["/service-page", "https://kmupower.com/loesungen"], ["/booking-calendar", "https://kmupower.com/kontakt"], ["/portfolio", "https://kmupower.com/case-studies"]];
+  var prefixes = [];
+  var fallback = "https://kmupower.com/";
+  var own = Object.prototype.hasOwnProperty;
+  var path = location.pathname;
+  try { path = decodeURIComponent(path); } catch (e) {}
+  if (path.normalize) { path = path.normalize("NFC"); }
+  path = path.toLowerCase().replace(/\/{2,}/g, "/").replace(/\/index\.html?$/, "").replace(/\.html?$/, "").replace(/\/+$/, "");
+  if (path === "") { path = "/"; }
+  function find(p) {
+    if (own.call(exact, p)) { return exact[p]; }
+    for (var i = 0; i < rules.length; i++) {
+      if (p === rules[i][0] || p.indexOf(rules[i][0] + "/") === 0) { return rules[i][1]; }
+    }
+    return null;
+  }
+  var target = find(path);
+  for (var j = 0; target === null && j < prefixes.length; j++) {
+    if (path === prefixes[j] || path.indexOf(prefixes[j] + "/") === 0) { target = find(path.slice(prefixes[j].length) || "/"); }
+  }
+  if (target === null) { target = fallback; }
+  var link = document.getElementById("go");
+  if (link) { link.href = target; link.textContent = target.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""); }
+  document.title = "Weiterleitung auf " + (link ? link.textContent : "");
+  location.replace(target);
+})();
+</script>
+</body>
+</html>
